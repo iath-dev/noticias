@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './index.module.css';
+import { useSelect } from '../../hooks';
 
 const Form = () => {
+
+    const [category, CategorySelect] = useSelect('', []);
+
     return ( 
         <div className={`row ${styles.search}`}>
             <div className="col s12 m8 offset-m2">
                 <form>
                     <h2 className={styles.heading}>Encuentra Noticias por Categoría</h2>
+
+                    <CategorySelect />
+
                     <div className="input-field col s12">
                         <input
                             type="submit"
