@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './index.module.css';
 import { useSelect } from '../../hooks';
+import { Options } from '../../data';
 
 const Form = () => {
 
-    const [category, CategorySelect] = useSelect('', []);
+    const [category, CategorySelect] = useSelect('', Options.Categories);
 
     return ( 
         <div className={`row ${styles.search}`}>
