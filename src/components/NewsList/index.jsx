@@ -4,7 +4,7 @@ import { Article } from '..';
 const NewsList = ({ news = [] }) => (
     <div className="row">
         {news.map((article) => (
-            <Article />
+            <Article key={article.url} article={article} />
         ))}
     </div>
 )
