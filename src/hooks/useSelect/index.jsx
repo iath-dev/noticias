@@ -4,7 +4,7 @@ const useSelect = (initial = '', options = []) => {
 
     const [ data, setData ] = React.useState(initial);
 
-    const component = () => (
+    const Component = () => (
         <select className="browser-default" value={data} onChange={(event) => setData(event.target.value)}>
             <option value="">--Seleccione un opción--</option>
             {options.map((option, index) => (
@@ -15,7 +15,7 @@ const useSelect = (initial = '', options = []) => {
         </select>
     )
 
-    return [data, component];
+    return [data, Component];
 }
 
 export default useSelect;
