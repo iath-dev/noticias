@@ -1,17 +1,17 @@
 import React from 'react';
-import { Header, Form } from './components';
+import { Header, Form, NewsList } from './components';
 
 function App() {
 
   const [category, setCategory] = React.useState('');
-  const [artiles, setArticles] = React.useState([]);
+  const [news, setNews] = React.useState([]);
 
   React.useEffect(() => {
     const consultApi = async () => {
       const url = `https://newsapi.org/v2/top-headlines?country=co&category=${category}&apiKey=f788063e946a42ed9b5526ac1283f0c6`;
       const res = await fetch(url);
-      const not = await res.json();
-      setArticles(not.articles);
+      const info = await res.json();
+      setNews(info.articles);
     }
     consultApi();
   }, [category])
@@ -21,6 +21,7 @@ function App() {
       <Header title="Buscador de Noticias" />
       <div className="container white">
         <Form setCategory={setCategory} />
+        <NewsList news={news} />
       </div>
     </React.Fragment>
   );
